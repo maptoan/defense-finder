@@ -35,7 +35,8 @@ def export_defense_finder_hmmer_hits(tmp_dir, outdir, filename):
 
 
 def write_defense_finder_hmmer(hmmer_hits, outdir, filename):
-    hmmer_hits.to_csv(os.path.join(outdir, filename+"_defense_finder_hmmer.tsv"), sep='\t', index=False)
+    safe_filename = os.path.basename(filename) + "_defense_finder_hmmer.tsv"
+    hmmer_hits.to_csv(os.path.join(outdir, safe_filename), sep='	', index=False)
 
 
 def get_hmmer_keys():
